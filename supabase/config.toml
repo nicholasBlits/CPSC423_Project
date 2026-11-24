@@ -1,0 +1,26 @@
+# Supabase project settings used by `supabase functions deploy`.
+# Set project_id to your project's reference ID (Project Settings → General).
+project_id = "idwfbrjbbqugpzvvlzep"
+
+# Players authenticate with a PlayFab session ticket, not a Supabase JWT,
+# so the gateway must not demand one. Each function checks the ticket itself.
+[functions.session]
+verify_jwt = false
+
+[functions.link-code]
+verify_jwt = false
+
+[functions.link-redeem]
+verify_jwt = false
+
+[functions.device-session]
+verify_jwt = false
+
+[functions.profile]
+verify_jwt = false
+
+[functions.game-login]
+verify_jwt = false
+
+[functions.welcome-email]
+verify_jwt = false

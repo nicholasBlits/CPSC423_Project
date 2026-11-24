@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Join my Battle Planes game — play together in your browser, on Android, or on Steam." data-i18n-content="meta.join.desc">
+  <title data-i18n="meta.join.title">Join my Battle Planes game — Duct Tape Games</title>
+  
+  <!-- Open Graph tags for social sharing -->
+  <meta property="og:title" content="Join my Battle Planes game" data-i18n-content="meta.join.ogTitle">
+  <meta property="og:description" content="Join me for a match of Battle Planes — Avioane, the notebook game, now online." data-i18n-content="meta.join.ogDesc">
+  <meta property="og:image" content="https://ducttapegames.com/DTG%20Assets/screenshots/07_gameplay_ro.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ducttapegames.com/games/battle-planes">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Join my Battle Planes game" data-i18n-content="meta.join.ogTitle">
+  <meta name="twitter:description" content="Join me for a match of Battle Planes — Avioane, the notebook game, now online." data-i18n-content="meta.join.ogDesc">
+  <meta name="twitter:image" content="https://ducttapegames.com/DTG%20Assets/screenshots/07_gameplay_ro.png">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,700;9..144,800&amp;family=Noto+Sans+SC:wght@400;700&amp;family=Noto+Sans+TC:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="512x512" href="../DTG%20Assets/app_icon/app_icon_512.png">
+  <link rel="apple-touch-icon" href="../DTG%20Assets/app_icon/app_icon_512.png">
+  <link rel="stylesheet" href="../css/styles.css?v=7">
+  <script src="../JS/i18n-boot.js"></script>
+  <script src="../JS/i18n-catalog.js" defer></script>
+  <script src="../JS/locales/zh-Hans.js" defer></script>
+  <script src="../JS/locales/zh-Hant.js" defer></script>
+  <script src="../JS/locales/ro.js" defer></script>
+  <script src="../JS/locales/uk.js" defer></script>
+  <script src="../JS/locales/ru.js" defer></script>
+  <script src="../JS/i18n.js" defer></script>
+  <script src="../JS/config.js" defer></script>
+  <script src="../JS/auth.js" defer></script>
+  <script src="../JS/scripts.js" defer></script>
+  <script src="../JS/joincode.js"></script>
+  <script src="../JS/webgl.js" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <header class="site-header">
+      <div class="shell header-row">
+        <a href="../index.html" class="brand" data-i18n-aria="brand.home" aria-label="Duct Tape Games, home"><span class="brand-icon" aria-hidden="true"></span><span>DUCT TAPE<br>GAMES</span></a>
+        <button id="menu-toggle" class="btn btn-ghost btn-small menu-toggle" type="button" data-i18n="nav.menu" data-i18n-aria="nav.menuOpen" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">☰ Menu</button>
+        <nav id="main-nav" class="nav-links" data-i18n-aria="nav.main" aria-label="Main navigation">
+          <a href="../index.html" data-i18n="nav.home">Home</a>
+          <a href="../games" data-i18n="nav.games">Games</a>
+          <a href="../about" data-i18n="nav.about">About</a>
+          <a href="../contact" data-i18n="nav.contact">Contact</a>
+          <a href="https://discord.gg/68tzzknGRs" target="_blank" rel="noopener noreferrer" data-i18n="nav.discord">Discord ↗</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-yellow btn-small" href="#play" data-i18n="nav.play">Play →</a>
+        </div>
+      </div>
+      <div class="account-strip">
+        <div class="shell account-inner" data-account-strip>
+          <small data-i18n="auth.checking">Checking sign-in…</small>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Mobile app open bar (shown only on mobile when join code is present) -->
+      <div id="app-open-bar" class="notice" style="display:none; background-color:#4a90e2; color:white; text-align:center; padding:1rem;">
+        <p style="margin:0 0 0.5rem"><strong data-i18n="join.appTitle">Have the app?</strong> <span data-i18n="join.appBody">Open this invite in Battle Planes.</span></p>
+        <a id="app-open-link" class="btn btn-yellow btn-small" href="#" style="margin-right:0.5rem" data-i18n="join.openApp">Open in app</a>
+        <button id="dismiss-app-bar" class="btn btn-ghost btn-small" type="button" style="color:white; border-color:white" data-i18n="join.continueBrowser">Continue in browser</button>
+      </div>
+
+      <section class="hero page-hero">
+        <div class="shell">
+          <span class="eyebrow" data-i18n="join.eyebrow">BATTLE PLANES MULTIPLAYER</span>
+          <h1 data-i18n="join.h1">Join my game</h1>
+          <p class="lead" id="invite-message" data-i18n="join.lead">Challenge me to a match of Battle Planes — Avioane, the classic notebook game, now online.</p>
+          <div id="join-code-display" style="margin:1.5rem 0; padding:1rem; background-color:#f5f5f5; border-radius:8px; text-align:center; display:none;">
+            <p style="margin:0 0 0.5rem; font-size:0.875rem; text-transform:uppercase; letter-spacing:0.05em; color:#666;" data-i18n="join.codeLabel">Game Code</p>
+            <p id="join-code-value" style="margin:0; font-size:2rem; font-weight:700; font-family:'Fraunces', serif; letter-spacing:0.1em; color:#333;"></p>
+          </div>
+          <div id="invalid-code-message" style="margin:1.5rem 0; padding:1rem; background-color:#fff3cd; border-radius:8px; border:1px solid #ffc107; display:none;">
+            <p style="margin:0; color:#856404;" data-i18n="join.invalidCode">That invite code doesn't look right. Ask your friend to send the link again, or just jump in and play!</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="play" class="section">
+        <div class="shell">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow" data-i18n="join.playNow">PLAY NOW</span>
+              <h2 data-i18n="join.choose">Choose your platform</h2>
+              <p data-i18n="join.chooseLead">Free to play in your browser and on Android. Try the free demo on Steam.</p>
+            </div>
+          </div>
+          <div class="game-grid">
+            <div>
+              <div class="player">
+                <canvas id="unity-canvas" class="unity-canvas" tabindex="-1" data-i18n-aria="games.canvas" aria-label="Battle Planes game" hidden></canvas>
+                <div id="player-placeholder" class="player-content">
+                  <div class="player-symbol" aria-hidden="true">
+                    <svg viewBox="0 0 240 160">
+                      <path fill="#ffd56a" d="M20 65 Q13 28 24 8 Q31 -2 45 2 L91 14 Q98 16 101 23 L111 50 L190 42 Q203 20 216 25 Q226 29 234 46 L253 88 Q258 103 248 110 Q241 115 230 106 L210 89 Q174 111 132 130 Q139 149 132 158 Q124 167 104 173 Q91 176 85 162 L63 126 L46 132 L56 157 Q58 165 52 168 Q44 169 38 158 L22 124 Q15 120 10 110 Q3 97 10 87 L28 76 Z"></path>
+                    </svg>
+                  </div>
+                  <h3 data-i18n="games.standby">FLIGHT DECK / STANDBY</h3>
+                  <p data-i18n="games.standbyBody">Play Battle Planes right here. Your account on this site comes with you into the game.</p>
+                  <div class="progress" role="progressbar" data-i18n-aria="games.loading" aria-label="Game loading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="game-progress">
+                    <div class="progress-fill" id="game-progress-fill" style="width:0%"></div>
+                  </div>
+                  <span id="progress-label" aria-live="polite" data-i18n="games.ready">Ready when you are.</span>
+                  <div class="button-row" style="justify-content:center">
+                    <a id="play-browser-link" class="btn btn-yellow" href="https://battleplanes.itch.io/battle-planes" target="_blank" rel="noopener noreferrer" data-i18n="games.playBrowser">Play in browser ↗</a>
+                  </div>
+                  <span class="player-hint" data-i18n="games.hint">Best on desktop · Mobile players: get the Android app</span>
+                </div>
+              </div>
+            </div>
+            <article class="card game-info">
+              <span class="pill" data-i18n="games.genre">MULTIPLAYER / ACTION</span>
+              <h3 data-i18n="games.sky">Take the sky together.</h3>
+              <p data-i18n="games.skyBody">Battle Planes is Avioane, the classic paper game, now online. Hide 3 planes on your grid, take turns calling shots, and find your opponent's plane heads first. Every shot is a hit, a miss or a kill.</p>
+              <div class="chip-row">
+                <span class="chip" data-i18n="chip.web">Web</span><span class="chip" data-i18n="chip.android">Android</span><span class="chip" data-i18n="chip.steam">Steam</span>
+              </div>
+              <div class="button-row">
+                <a id="play-web-link" class="btn btn-yellow btn-small" href="https://battleplanes.itch.io/battle-planes" target="_blank" rel="noopener noreferrer" data-i18n="games.playWeb">Play on the web ↗</a>
+                <a class="btn btn-blue btn-small" href="https://play.google.com/store/apps/details?id=com.ducttapegames.battleplanes" target="_blank" rel="noopener noreferrer" data-i18n="games.googlePlay">Get it on Google Play ↗</a>
+                <a id="steam-link" class="btn btn-ghost btn-small" href="https://store.steampowered.com/app/3373790/" target="_blank" rel="noopener noreferrer" data-i18n="games.wishlist">Wishlist on Steam ↗</a>
+                <a id="steam-launch-button" class="btn btn-ghost btn-small" href="#" style="display:none;" data-i18n="join.steamOpen">Open in Steam</a>
+                <a class="btn btn-ghost btn-small" href="https://discord.gg/68tzzknGRs" target="_blank" rel="noopener noreferrer" data-i18n="nav.discord">Discord ↗</a>
+              </div>
+              <p id="steam-launch-note" style="margin-top:0.5rem; font-size:0.875rem; color:#666; display:none;" data-i18n="join.steamNote">Needs the Battle Planes demo installed in Steam. Steam may ask once to allow the launch options.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <strong>DUCT TAPE GAMES</strong>
+          <p data-i18n="footer.tagline">Made for the next match. No analytics in v1.</p>
+        </div>
+        <nav class="footer-links" data-i18n-aria="footer.links" aria-label="Footer links">
+          <a href="../games" data-i18n="nav.games">Games</a>
+          <a href="../about" data-i18n="nav.about">About</a>
+          <a href="../contact" data-i18n="nav.contact">Contact</a>
+          <a href="../privacy" data-i18n="footer.privacyBp">Privacy (Battle Planes)</a>
+          <a href="../privacy-wordsinacircle" data-i18n="footer.privacyWords">Privacy (Words in a Circle)</a>
+          <a href="../terms" data-i18n="footer.terms">Terms of Service</a>
+          <a href="https://discord.gg/68tzzknGRs" target="_blank" rel="noopener noreferrer" data-i18n="nav.discord">Discord ↗</a>
+          <a href="https://x.com/jocavioane" target="_blank" rel="noopener noreferrer">X ↗</a>
+          <a href="mailto:support@ducttapegames.com">support@ducttapegames.com</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Handle join code from URL and update the page
+    (() => {
+      // Check if there's a join value in the URL (before validation)
+      const hasJoinValue = (() => {
+        const params = new URLSearchParams(location.search);
+        if (params.has('join') && params.get('join')) return true;
+        if (location.hash.startsWith('#join=')) return true;
+        if (location.pathname.match(/\/join\//)) return true;
+        return false;
+      })();
+      
+      const joinCode = window.parseJoinCode
+        ? window.parseJoinCode(location.search, location.hash, location.pathname)
+        : null;
+      
+      const invalidCodeMessage = document.getElementById('invalid-code-message');
+      const codeDisplay = document.getElementById('join-code-display');
+      
+      if (joinCode) {
+        // Valid join code - show it
+        const codeValue = document.getElementById('join-code-value');
+        if (codeDisplay && codeValue) {
+          codeValue.textContent = joinCode;
+          codeDisplay.style.display = 'block';
+        }
+        
+        // Hide error message
+        if (invalidCodeMessage) {
+          invalidCodeMessage.style.display = 'none';
+        }
+        
+        // i18n.js runs after this script and announces the language on dtg:lang.
+        document.addEventListener('dtg:lang', () => {
+          const message = document.getElementById('invite-message');
+          if (message && window.DTG_I18N) message.textContent = DTG_I18N.t('join.withCode', { code: joinCode });
+        });
+        
+        // Append join code to itch.io links
+        const itchUrl = 'https://battleplanes.itch.io/battle-planes';
+        const playBrowserLink = document.getElementById('play-browser-link');
+        const playWebLink = document.getElementById('play-web-link');
+        
+        if (playBrowserLink) {
+          playBrowserLink.href = `${itchUrl}?join=${joinCode}#join=${joinCode}`;
+        }
+        if (playWebLink) {
+          playWebLink.href = `${itchUrl}?join=${joinCode}#join=${joinCode}`;
+        }
+        
+        // Show mobile app open bar on mobile devices
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMobile) {
+          const appBar = document.getElementById('app-open-bar');
+          const appLink = document.getElementById('app-open-link');
+          const dismissBtn = document.getElementById('dismiss-app-bar');
+          
+          if (appBar && appLink) {
+            // Android intent URL for deep linking
+            const intentUrl = `intent://join/${joinCode}#Intent;scheme=battleplanes;package=com.ducttapegames.battleplanes;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.ducttapegames.battleplanes;end`;
+            appLink.href = intentUrl;
+            appBar.style.display = 'block';
+            
+            if (dismissBtn) {
+              dismissBtn.addEventListener('click', () => {
+                appBar.style.display = 'none';
+              });
+            }
+          }
+        }
+        
+        // Show Steam link only on desktop
+        const isDesktop = !isMobile;
+        const steamLink = document.getElementById('steam-link');
+        if (steamLink && !isDesktop) {
+          steamLink.style.display = 'none';
+        }
+        
+        // Show Steam launch button only on desktop with valid join code
+        const steamLaunchButton = document.getElementById('steam-launch-button');
+        const steamLaunchNote = document.getElementById('steam-launch-note');
+        if (steamLaunchButton && isDesktop) {
+          const encodedCode = encodeURIComponent(joinCode);
+          steamLaunchButton.href = `steam://run/5641290//+bp_join%20${encodedCode}`;
+          steamLaunchButton.style.display = '';
+          if (steamLaunchNote) {
+            steamLaunchNote.style.display = 'block';
+          }
+        }
+      } else if (hasJoinValue) {
+        // Invalid join code - show error, hide code display
+        if (invalidCodeMessage) {
+          invalidCodeMessage.style.display = 'block';
+        }
+        if (codeDisplay) {
+          codeDisplay.style.display = 'none';
+        }
+      }
+      // else: no join value at all - show neither error nor code display (default state)
+    })();
+  </script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bf609eb13e294b0da394cadd308b025e"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

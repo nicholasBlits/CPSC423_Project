@@ -1,0 +1,2 @@
+# Join code redirects
+/join/:code /games/battle-planes?join=:code 302

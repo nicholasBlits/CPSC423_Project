@@ -1,0 +1,24 @@
+{
+  "name": "ducttapegames-site",
+  "private": true,
+  "description": "Duct Tape Games website, deployed to Cloudflare Pages",
+  "config": {
+    "pagesProject": "ducttapegames"
+  },
+  "scripts": {
+    "build": "rm -rf dist && mkdir -p 'dist/DTG Assets' 'dist/.well-known' 'dist/html' && cp -R index.html app-ads.txt _headers _redirects robots.txt 4a9f2977851e259ad282de1b1950e1b2.txt css JS games webgl dist/ && cp html/404.html dist/404.html && cp -R .well-known/assetlinks.json dist/.well-known/ && cp -R 'DTG Assets/app_icon' 'DTG Assets/screenshots' 'DTG Assets/steam_capsules' 'dist/DTG Assets/' && node build/generate-static-pages.js && cp html/auth-callback.html html/link.html html/profile.html dist/html/ && node build/generate-sitemap.js",
+    "test": "node --no-warnings --test --test-concurrency=1 test/*.test.js tests/*.test.js tests/*.test.mjs",
+    "dev": "npm run build && wrangler pages dev dist",
+    "deploy:preview": "npm run build && wrangler pages deploy dist --project-name=$npm_package_config_pagesProject --branch=preview",
+    "deploy:production": "npm run build && wrangler pages deploy dist --project-name=$npm_package_config_pagesProject --branch=main",
+    "login": "wrangler login"
+  },
+  "devDependencies": {
+    "jsdom": "^31.0.1",
+    "wrangler": "^4.0.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261103.1": true
+  }
+}

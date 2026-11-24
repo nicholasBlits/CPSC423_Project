@@ -1,0 +1,58 @@
+{
+  "name": "DTG welcome email",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "dtg-welcome-email",
+        "authentication": "headerAuth",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "name": "Welcome webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "dtg-welcome-email",
+      "notes": "Called by the Supabase welcome-email function. Header Auth credential: name X-DTG-Secret, value = N8N_WEBHOOK_SECRET."
+    },
+    {
+      "parameters": {
+        "fromEmail": "Duct Tape Games <hello@ducttapegames.com>",
+        "toEmail": "={{ $json.body.email }}",
+        "subject": "Welcome to Duct Tape Games",
+        "emailFormat": "both",
+        "text": "=Hi {{ $json.body.name }},\n\nYour Duct Tape Games account is ready. Your Battle Planes progress is saved to it, so you can sign in with Google on any browser and pick up where you left off.\n\nPlay Battle Planes in your browser: https://www.ducttapegames.com/games\nYour profile: https://www.ducttapegames.com/html/profile.html\n\nBattle Planes is Avioane, the Romanian notebook game: hide your planes, call your shots, and find out if each one is a hit, a miss or a kill.\n\nQuestions? Write to support@ducttapegames.com.\n\nSee you in the sky,\nDuct Tape Games\n\nYou're getting this one-time email because you made an account on ducttapegames.com.",
+        "html": "=<!doctype html><html><body style=\"margin:0;padding:24px;background:#f4f1ea;font-family:Arial,Helvetica,sans-serif;color:#1d1d1d\">\n<div style=\"max-width:520px;margin:0 auto;background:#ffffff;border-radius:12px;padding:28px\">\n<h1 style=\"margin:0 0 16px;font-size:22px\">Welcome aboard, {{ $json.body.nameHtml }}</h1>\n<p style=\"line-height:1.5\">Your Duct Tape Games account is ready. Your Battle Planes progress is saved to it, so you can sign in with Google on any browser and pick up where you left off.</p>\n<p style=\"margin:24px 0\"><a href=\"https://www.ducttapegames.com/games\" style=\"background:#ffd56a;color:#1d1d1d;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold\">Play Battle Planes</a></p>\n<p style=\"line-height:1.5\">Battle Planes is Avioane, the Romanian notebook game: hide your planes, call your shots, and find out if each one is a hit, a miss or a kill.</p>\n<p style=\"line-height:1.5\">See your rating and change your name on <a href=\"https://www.ducttapegames.com/html/profile.html\">your profile</a>. Questions? Write to <a href=\"mailto:support@ducttapegames.com\">support@ducttapegames.com</a>.</p>\n<p style=\"line-height:1.5\">See you in the sky,<br>Duct Tape Games</p>\n<p style=\"margin-top:24px;font-size:12px;color:#6b6b6b\">You're getting this one-time email because you made an account on ducttapegames.com.</p>\n</div></body></html>",
+        "options": {}
+      },
+      "name": "Send welcome email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        260,
+        0
+      ],
+      "notes": "Pick your SMTP credential (for example Google Workspace or your mail host). Copy rules: Avioane; hit, miss or kill; never 'Battleship'."
+    }
+  ],
+  "connections": {
+    "Welcome webhook": {
+      "main": [
+        [
+          {
+            "node": "Send welcome email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

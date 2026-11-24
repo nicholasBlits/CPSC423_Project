@@ -1,0 +1,13 @@
+# Robots.txt for ducttapegames.com
+# Cloudflare prepends its managed block; this is our custom section.
+
+User-agent: *
+Allow: /
+
+# Exclude auth and dynamic pages
+Disallow: /html/auth-callback
+Disallow: /html/link
+Disallow: /html/profile
+
+# Sitemap
+Sitemap: https://ducttapegames.com/sitemap.xml

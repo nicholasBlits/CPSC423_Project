@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Battle Planes Multiplayer by Duct Tape Games. Play in your browser, on Android, or on Steam." data-i18n-content="meta.games.desc">
+  <title data-i18n="meta.games.title">Games — Duct Tape Games</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,700;9..144,800&amp;family=Noto+Sans+SC:wght@400;700&amp;family=Noto+Sans+TC:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="512x512" href="../DTG%20Assets/app_icon/app_icon_512.png">
+  <link rel="apple-touch-icon" href="../DTG%20Assets/app_icon/app_icon_512.png">
+  <link rel="stylesheet" href="../css/styles.css?v=7">
+  <script src="../JS/i18n-boot.js"></script>
+  <script src="../JS/i18n-catalog.js" defer></script>
+  <script src="../JS/locales/zh-Hans.js" defer></script>
+  <script src="../JS/locales/zh-Hant.js" defer></script>
+  <script src="../JS/locales/ro.js" defer></script>
+  <script src="../JS/locales/uk.js" defer></script>
+  <script src="../JS/locales/ru.js" defer></script>
+  <script src="../JS/i18n.js" defer></script>
+  <script src="../JS/config.js" defer></script>
+  <script src="../JS/auth.js" defer></script>
+  <script src="../JS/scripts.js" defer></script>
+  <script src="../JS/joincode.js"></script>
+  <script src="../JS/webgl.js" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <header class="site-header">
+      <div class="shell header-row">
+        <a href="../index.html" class="brand" data-i18n-aria="brand.home" aria-label="Duct Tape Games, home"><span class="brand-icon" aria-hidden="true"></span><span>DUCT TAPE<br>GAMES</span></a>
+        <button id="menu-toggle" class="btn btn-ghost btn-small menu-toggle" type="button" data-i18n="nav.menu" data-i18n-aria="nav.menuOpen" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">☰ Menu</button>
+        <nav id="main-nav" class="nav-links" data-i18n-aria="nav.main" aria-label="Main navigation">
+          <a href="../index.html" data-i18n="nav.home">Home</a>
+          <a href="games.html" aria-current="page" data-i18n="nav.games">Games</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          <a href="https://discord.gg/68tzzknGRs" target="_blank" rel="noopener noreferrer" data-i18n="nav.discord">Discord ↗</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-yellow btn-small" href="#battle-planes" data-i18n="nav.play">Play →</a>
+        </div>
+      </div>
+      <div class="account-strip">
+        <div class="shell account-inner" data-account-strip>
+          <small data-i18n="auth.checking">Checking sign-in…</small>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="shell guest-warning-slot">
+        <aside class="notice" data-i18n-aria="guest.label" aria-label="Guest account warning" data-guest-warning hidden>
+          <div>
+            <strong data-i18n="guest.title">Heads up, guest pilot.</strong>
+            <p data-i18n="guest.body">Your guest account lives only in this browser. Clearing browser data or switching devices will lose it and its progress. Save it with Google to keep it.</p>
+          </div>
+          <button class="btn btn-yellow btn-small" type="button" data-auth-action="google" data-i18n="guest.save">Save progress with Google</button>
+          <button class="notice-close" type="button" data-i18n-aria="guest.dismiss" aria-label="Dismiss guest warning" data-dismiss-guest-warning>×</button>
+        </aside>
+      </div>
+      <section class="hero page-hero">
+        <div class="shell">
+          <span class="eyebrow" data-i18n="games.eyebrow">GAMES</span>
+          <h1 data-i18n="games.h1">Our games</h1>
+          <p class="lead" data-i18n="games.lead">Everything Duct Tape Games has in the hangar. Right now that's one title, Battle Planes Multiplayer.</p>
+        </div>
+      </section>
+
+      <section id="battle-planes" class="section">
+        <div class="shell">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow" data-i18n="games.featured">01 / FEATURED GAME</span>
+              <h2 data-i18n="games.title">Battle Planes Multiplayer</h2>
+              <p data-i18n="games.sub">Challenge a friend or play someone new.</p>
+            </div>
+            <span class="pill" data-i18n="games.playWebPill">PLAY ON THE WEB</span>
+          </div>
+          <div class="game-grid">
+            <div>
+              <!-- Unity WebGL: webgl.js loads the build from DTG_CONFIG.webgl and hands it the site's session through window.DTGWebGL (see unity/README.md). -->
+              <div class="player">
+                <canvas id="unity-canvas" class="unity-canvas" tabindex="-1" data-i18n-aria="games.canvas" aria-label="Battle Planes game" hidden></canvas>
+                <div id="player-placeholder" class="player-content">
+                  <div class="player-symbol" aria-hidden="true">
+                    <svg viewBox="0 0 240 160">
+                      <path fill="#ffd56a" d="M20 65 Q13 28 24 8 Q31 -2 45 2 L91 14 Q98 16 101 23 L111 50 L190 42 Q203 20 216 25 Q226 29 234 46 L253 88 Q258 103 248 110 Q241 115 230 106 L210 89 Q174 111 132 130 Q139 149 132 158 Q124 167 104 173 Q91 176 85 162 L63 126 L46 132 L56 157 Q58 165 52 168 Q44 169 38 158 L22 124 Q15 120 10 110 Q3 97 10 87 L28 76 Z"></path>
+                    </svg>
+                  </div>
+                  <h3 data-i18n="games.standby">FLIGHT DECK / STANDBY</h3>
+                  <p data-i18n="games.standbyBody">Play Battle Planes right here. Your account on this site comes with you into the game.</p>
+                  <div class="progress" role="progressbar" data-i18n-aria="games.loading" aria-label="Game loading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="game-progress">
+                    <div class="progress-fill" id="game-progress-fill" style="width:0%"></div>
+                  </div>
+                  <span id="progress-label" aria-live="polite" data-i18n="games.ready">Ready when you are.</span>
+                  <div class="button-row" style="justify-content:center">
+                    <button id="browser-play" class="btn btn-yellow btn-small" type="button" data-i18n="games.playBrowser">Play in browser ↗</button>
+                  </div>
+                  <span class="player-hint" data-i18n="games.hint">Best on desktop · Mobile players: get the Android app</span>
+                </div>
+              </div>
+              <div id="player-controls" class="player-controls" hidden>
+                <span id="fullscreen-note" class="player-controls-note" aria-live="polite" hidden></span>
+                <button id="game-fullscreen" class="btn btn-blue btn-small" type="button" aria-label="Play full screen (Esc to exit)">Full screen ⛶</button>
+              </div>
+              <div class="media-pair">
+                <div class="media-placeholder" data-i18n-html="games.trailer">TRAILER PLACEHOLDER<br>Future game trailer</div>
+                <div class="media-placeholder" data-i18n-html="games.more">MORE GAMES<br>Future Duct Tape Games titles</div>
+              </div>
+            </div>
+            <article class="card game-info">
+              <span class="pill" data-i18n="games.genre">MULTIPLAYER / ACTION</span>
+              <h3 data-i18n="games.sky">Take the sky together.</h3>
+              <p data-i18n="games.skyBody">Battle Planes is Avioane, the classic paper game, now online. Hide 3 planes on your grid, take turns calling shots, and find your opponent's plane heads first. Every shot is a hit, a miss or a kill.</p>
+              <div class="chip-row">
+                <span class="chip" data-i18n="chip.web">Web</span><span class="chip" data-i18n="chip.android">Android</span><span class="chip" data-i18n="chip.steam">Steam</span>
+              </div>
+              <div class="button-row">
+                <a class="btn btn-yellow btn-small" href="https://battleplanes.itch.io/battle-planes" target="_blank" rel="noopener noreferrer" data-i18n="games.playWeb">Play on the web ↗</a>
+                <a class="btn btn-blue btn-small" href="https://play.google.com/store/apps/details?id=com.ducttapegames.battleplanes" target="_blank" rel="noopener noreferrer" data-i18n="games.googlePlay">Get it on Google Play ↗</a>
+                <a class="btn btn-ghost btn-small" href="https://store.steampowered.com/app/3373790/" target="_blank" rel="noopener noreferrer" data-i18n="games.wishlist">Wishlist on Steam ↗</a>
+                <a class="btn btn-ghost btn-small" href="https://discord.gg/68tzzknGRs" target="_blank" rel="noopener noreferrer" data-i18n="nav.discord">Discord ↗</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <strong>DUCT TAPE GAMES</strong>
+          <p data-i18n="footer.tagline">Made for the next match. No analytics in v1.</p>
+        </div>
+        <nav class="footer-links" data-i18n-aria="footer.links" aria-label="Footer links">
+          <a href="games.html" data-i18n="nav.games">Games</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          <a href="privacy.html" data-i18n="footer.privacyBp">Privacy (Battle Planes)</a>
+          <a href="privacy-wordsinacircle.html" data-i18n="footer.privacyWords">Privacy (Words in a Circle)</a>
+          <a href="terms.html" data-i18n="footer.terms">Terms of Service</a>
+          <a href="https://discord.gg/68tzzknGRs" target="_blank" rel="noopener noreferrer" data-i18n="nav.discord">Discord ↗</a>
+          <a href="https://x.com/jocavioane" target="_blank" rel="noopener noreferrer">X ↗</a>
+          <a href="mailto:support@ducttapegames.com">support@ducttapegames.com</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+
+  <div id="info-modal" class="modal-backdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-message" tabindex="-1">
+      <h2 id="modal-title">Prototype preview</h2>
+      <p id="modal-message">This feature is not connected yet.</p>
+      <div class="modal-actions">
+        <button id="modal-close" class="btn btn-blue" type="button" data-i18n="modal.ok">Got it</button>
+      </div>
+    </div>
+  </div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bf609eb13e294b0da394cadd308b025e"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

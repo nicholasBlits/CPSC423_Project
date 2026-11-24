@@ -1,0 +1,6 @@
+# Cloudflare Pages headers
+/*
+  X-Content-Type-Options: nosniff
+
+/.well-known/assetlinks.json
+  Content-Type: application/json

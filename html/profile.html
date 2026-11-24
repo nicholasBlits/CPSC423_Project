@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Your Battle Planes profile: display name, Elo and linked accounts." data-i18n-content="meta.profile.desc">
+  <meta name="robots" content="noindex">
+  <title data-i18n="meta.profile.title">Your profile — Duct Tape Games</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,700;9..144,800&amp;family=Noto+Sans+SC:wght@400;700&amp;family=Noto+Sans+TC:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="512x512" href="../DTG%20Assets/app_icon/app_icon_512.png">
+  <link rel="apple-touch-icon" href="../DTG%20Assets/app_icon/app_icon_512.png">
+  <link rel="stylesheet" href="../css/styles.css?v=7">
+  <script src="../JS/i18n-boot.js"></script>
+  <script src="../JS/i18n-catalog.js" defer></script>
+  <script src="../JS/locales/zh-Hans.js" defer></script>
+  <script src="../JS/locales/zh-Hant.js" defer></script>
+  <script src="../JS/locales/ro.js" defer></script>
+  <script src="../JS/locales/uk.js" defer></script>
+  <script src="../JS/locales/ru.js" defer></script>
+  <script src="../JS/i18n.js" defer></script>
+  <script src="../JS/config.js" defer></script>
+  <script src="../JS/auth.js" defer></script>
+  <script src="../JS/scripts.js" defer></script>
+  <script src="../JS/profile.js" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <header class="site-header">
+      <div class="shell header-row">
+        <a href="../index.html" class="brand" data-i18n-aria="brand.home" aria-label="Duct Tape Games, home"><span class="brand-icon" aria-hidden="true"></span><span>DUCT TAPE<br>GAMES</span></a>
+        <button id="menu-toggle" class="btn btn-ghost btn-small menu-toggle" type="button" data-i18n="nav.menu" data-i18n-aria="nav.menuOpen" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">☰ Menu</button>
+        <nav id="main-nav" class="nav-links" data-i18n-aria="nav.main" aria-label="Main navigation">
+          <a href="../index.html" data-i18n="nav.home">Home</a>
+          <a href="games.html" data-i18n="nav.games">Games</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          <a href="https://discord.gg/68tzzknGRs" target="_blank" rel="noopener noreferrer" data-i18n="nav.discord">Discord ↗</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-yellow btn-small" href="games.html" data-i18n="nav.play">Play →</a>
+        </div>
+      </div>
+      <div class="account-strip">
+        <div class="shell account-inner" data-account-strip>
+          <small data-i18n="auth.checking">Checking sign-in…</small>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="shell guest-warning-slot">
+        <aside class="notice" data-i18n-aria="guest.label" aria-label="Guest account warning" data-guest-warning hidden>
+          <div>
+            <strong data-i18n="guest.title">Heads up, guest pilot.</strong>
+            <p data-i18n="guest.body">Your guest account lives only in this browser. Clearing browser data or switching devices will lose it and its progress. Save it with Google to keep it.</p>
+          </div>
+          <button class="btn btn-yellow btn-small" type="button" data-auth-action="google" data-i18n="guest.save">Save progress with Google</button>
+          <button class="notice-close" type="button" data-i18n-aria="guest.dismiss" aria-label="Dismiss guest warning" data-dismiss-guest-warning>×</button>
+        </aside>
+      </div>
+
+      <section class="hero page-hero">
+        <div class="shell">
+          <span class="eyebrow" data-i18n="profile.eyebrow">PROFILE</span>
+          <h1 data-i18n="profile.h1">Your hangar</h1>
+          <p class="lead" data-i18n="profile.lead">Your pilot name, rating and the ways you can sign in.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell profile-page">
+          <p id="profile-loading" class="fineprint" role="status" data-i18n="profile.loading">Loading your profile…</p>
+
+          <div id="profile-signed-out" class="card" hidden>
+            <h2 data-i18n="profile.signedOutTitle">Sign in to see your profile</h2>
+            <p class="fineprint" data-i18n="profile.signedOutBody">Play as a guest, sign in with Google, or open your Android account here with a code from the game.</p>
+            <div class="button-row">
+              <button class="btn btn-ghost" type="button" data-auth-action="guest" data-i18n="profile.guestBtn">Play as guest</button>
+              <button class="btn btn-blue" type="button" data-auth-action="google" data-i18n="profile.googleBtn">Sign in with Google</button>
+              <a class="btn btn-ghost" href="link.html" data-i18n="profile.codeBtn">Use a game code</a>
+            </div>
+          </div>
+
+          <div id="profile-main" hidden>
+            <article class="card">
+              <div class="profile-head">
+                <div id="pf-avatar" class="profile-avatar" aria-hidden="true"></div>
+                <div>
+                  <h2 id="pf-name"></h2>
+                  <span id="pf-sub" class="fineprint"></span>
+                </div>
+              </div>
+              <div class="stat-grid">
+                <div class="stat"><strong id="pf-elo">–</strong><span data-i18n="profile.elo">ELO</span></div>
+                <div class="stat"><strong id="pf-since">–</strong><span data-i18n="profile.since">PILOT SINCE</span></div>
+                <div class="stat"><strong id="pf-browsers">–</strong><span data-i18n="profile.browsers">LINKED BROWSERS</span></div>
+              </div>
+              <p id="pf-name-issue" class="profile-issue" hidden></p>
+            </article>
+
+            <article class="card">
+              <h3 data-i18n="profile.nameTitle">Display name</h3>
+              <p id="name-locked" class="fineprint" hidden></p>
+              <form id="name-form" class="link-form name-form" novalidate hidden>
+                <label class="sr-only" for="name-input" data-i18n="profile.nameLabel">Display name</label>
+                <input id="name-input" name="displayName" maxlength="20" autocomplete="nickname" spellcheck="false" aria-describedby="name-help name-feedback">
+                <button id="name-submit" class="btn btn-blue" type="submit" data-i18n="profile.saveName">Save name</button>
+              </form>
+              <p id="name-help" class="fineprint" data-i18n="profile.nameHelp">3–20 letters or numbers, with single spaces, dots, dashes or underscores between them. Other players see this name.</p>
+              <p id="name-feedback" class="link-feedback" role="status"></p>
+            </article>
+
+            <article id="linking" class="card">
+              <h3 data-i18n="profile.linksTitle">Linked accounts</h3>
+              <ul class="link-list">
+                <li>
+                  <div><strong data-i18n="profile.googleName">Google</strong><span id="link-google-status" class="fineprint"></span></div>
+                  <span id="link-google-action"></span>
+                </li>
+                <li>
+                  <div><strong data-i18n="profile.androidName">Battle Planes on Android</strong><span id="link-game-status" class="fineprint"></span></div>
+                  <span id="link-game-action"></span>
+                </li>
+                <li>
+                  <div><strong data-i18n="profile.browserName">This browser</strong><span id="link-browser-status" class="fineprint"></span></div>
+                  <span id="link-browser-action"></span>
+                </li>
+              </ul>
+              <p class="fineprint" data-i18n-html="profile.delete">Need your data deleted? Email <a href="mailto:support@ducttapegames.com?subject=Account%20deletion%20request">support@ducttapegames.com</a>.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <strong>DUCT TAPE GAMES</strong>
+          <p data-i18n="footer.tagline">Made for the next match. No analytics in v1.</p>
+        </div>
+        <nav class="footer-links" data-i18n-aria="footer.links" aria-label="Footer links">
+          <a href="games.html" data-i18n="nav.games">Games</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          <a href="privacy.html" data-i18n="footer.privacyBp">Privacy (Battle Planes)</a>
+          <a href="privacy-wordsinacircle.html" data-i18n="footer.privacyWords">Privacy (Words in a Circle)</a>
+          <a href="terms.html" data-i18n="footer.terms">Terms of Service</a>
+          <a href="mailto:support@ducttapegames.com">support@ducttapegames.com</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bf609eb13e294b0da394cadd308b025e"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

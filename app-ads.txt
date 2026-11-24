@@ -1,0 +1,2 @@
+# app-ads.txt for ducttapegames.com (AdMob publisher of Battle Planes Multiplayer)
+google.com, pub-7671130852281984, DIRECT, f08c47fec0942fa0
